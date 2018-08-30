@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1522:xe</property>
+		<property name="connection.username">ecommerce</property>
+		<property name="connection.password">tiger</property>
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="show_sql">true</property>
+		<mapping class="model.to.LoginInfo"/>
+		<mapping class="model.to.CategoryInfo"/>
+		<mapping class="model.to.SubcategoryInfo"/>
+		<mapping class="model.to.CompanyInfo"/>
+		<mapping class="model.to.ProductInfo"/>
+		<mapping class="model.to.ProductPhoto"/>
+		<mapping class="model.to.CartInfo"/>
+		<mapping class="model.to.CartItems"/>
+		<mapping class="model.to.OrderInfo"/>
+		<mapping class="model.to.OrderDetails"/>
+	</session-factory>
+</hibernate-configuration>

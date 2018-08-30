@@ -1,0 +1,185 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,100);
+$primary : #FF4081;
+
+*, *:after, *:before{
+ @include box-sizing(border-box);
+}
+
+
+html{
+  position: relative;
+  background: $primary;
+  font-family: 'Roboto', sans-serif;
+}
+.thumbur{
+  width: 150px;
+  height: 150px;
+  position: relative;
+  background-color: #efefef;
+@include filter-gradient(#efefef, #e1e1e1, horizontal);
+@include background-image(linear-gradient(left, #efefef 0%,#efefef 50%,#e1e1e1 50%,#e1e1e1 100%));
+  margin: auto;
+  @include border-radius(100%);
+    &:before{
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 12px;
+      background-color: #efefef;
+      left: 50%;
+      bottom: 50px;
+      z-index: 5;
+      @include translateX(-50%);
+      @include border-bottom-radius(2px);
+  }
+}
+.icon-lock{
+  position: relative;
+  width: 80px;
+  height: 60px;
+  background: #FFA000;
+  margin: auto;
+  @include translateY(60px);
+  @include border-radius(8px);
+  @include box-shadow(0 0 2px #F57C00 inset);
+  &:after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 35px;
+    border: 9px solid #F57C00;
+    border-bottom: none;
+    bottom: 100%;
+    left: 50%;
+    @include translateX(-50%);
+    @include border-top-radius(50px);
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #efefef;
+    left: 50%;
+    top: 20px;
+    @include translateX(-50%);
+    @include border-radius(100%);
+  }
+}
+.panel-lite{
+  margin:20px auto ;
+  max-width: 360px;
+  background: #fff;
+  padding: 45px 20px;
+  @include border-radius(4px);
+  @include box-shadow(2px 2px 5px rgba(0,0,0,.2));
+  position: relative;
+  h4{
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    color: $primary;
+    margin: 15px auto;
+  }
+  
+  a{
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: $primary;
+    font-size: 14px;
+  }
+}
+.form-group{
+ 
+  position: relative;
+  font-size: 15px;
+  color: #666;
+  &+&{
+    margin-top: 30px;
+  }
+  
+  .form-label{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 5px;
+    @include transition(.3s);
+    
+  }
+  
+  .form-control{
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    height: 35px;
+    background: none;
+    border:none;
+    padding: 5px 0;
+    @include transition(.3s);
+    border-bottom: 1px solid #777;
+    &:invalid{outline: none;}
+    
+    &:focus , &:valid{
+      outline: none;
+      color: $primary;
+      @include box-shadow(0 1px $primary);
+      border-color:$primary;
+      + .form-label{
+        font-size: 12px;
+        @include translateY(-15px);
+      }
+    }
+  }
+  
+}
+.floating-btn{
+  background: $primary;
+  width: 60px;
+  height: 60px;
+  @include border-radius(50%);
+  color: #fff;
+  font-size: 32px;
+  border:none;
+  position: absolute;
+  margin: auto;
+  @include transition(.3s);
+  @include box-shadow(1px 0px 0px rgba(0, 0, 0, 0.3) inset);
+  margin: auto;
+  right: -30px;
+  bottom: 90px;
+  cursor: pointer;
+  &:hover{
+    @include box-shadow(0 0 0 rgba(0, 0, 0, 0.3) inset , 0 3px 6px rgba(0, 0, 0, 0.16), 0 5px 11px rgba(0, 0, 0, 0.23));
+    
+    .icon-arrow{
+       @include transform(rotate(45deg) scale(1.2));
+    }
+    
+  }
+    &:focus, &:active{
+    outline: none;
+  }
+}
+.icon-arrow{
+  position: relative;
+  width: 13px;
+  height: 13px;
+  border-right: 3px solid #fff;
+  border-top: 3px solid #fff;
+  display: block;
+  @include rotate(45deg);
+  margin:auto;
+  @include transition(.3s);
+
+  &:after{
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 3px;
+    background: #fff;
+    left: -5px;top: 5px;
+    @include rotate(-45deg);
+  }
+}
